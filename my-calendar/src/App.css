@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 20px;
+}
+
+.Calendar {
+  border: 5px solid black;
+  min-width: 75%;
+  margin: auto;
+}
+
+.CalendarRow {
+  display: flex;
+  flex-direction: row;
+  min-height: 75px;
+}
+
+.CalendarDay {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.CalendarHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-height: 50px;
+  text-align: center;
+}
+
+.MonthSelectButton {
+  width: 100%;
+  margin: auto;
+}
+
+.MonthSelectButton:hover {
+  cursor: pointer;
+}
+
