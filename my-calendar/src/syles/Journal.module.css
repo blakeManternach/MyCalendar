@@ -1,0 +1,14 @@
+.Journal {
+  margin: 20px 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Journal textarea {
+  height: 100%;
+  font-size: 20px;
+  resize: none;
+  padding: 10px;
+  background-color: #e3ccba;
+}
