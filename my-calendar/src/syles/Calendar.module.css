@@ -1,0 +1,58 @@
+.Calendar {
+  border: 2px solid rgb(85, 85, 85);
+  border-radius: 10px;
+  min-width: 75%;
+  margin: 50px auto auto auto;
+  color: rgb(233, 238, 97);
+  background-color: black;
+}
+
+.CalendarRow {
+  display: flex;
+  flex-direction: row;
+  min-height: 75px;
+  margin: 0px 2px;
+}
+
+.CalendarDay {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
+  padding: 5px;
+  margin: 1px;
+}
+
+.DayOutsideMonth {
+  background-color: black;
+}
+
+.DayIsToday {
+  background-color: rgb(233, 238, 97);
+  color: black;
+}
+
+.DayInMonth {
+  background-color: rgb(32, 34, 0);
+}
+
+.CalendarHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-height: 50px;
+  text-align: center;
+  align-items: baseline;
+}
+
+.MonthSelectButton {
+  padding: 5px 50px;
+  background-color: rgb(32, 34, 0);
+  border-radius: 20px;
+}
+
+.MonthSelectButton:hover {
+  cursor: pointer;
+  background-color: rgb(69 72 1);
+}

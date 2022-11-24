@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "../syles/Calendar.module.css";
 
 export function Calendar() {
   const [monthIndex, setMonthIndex] = useState(0);
@@ -60,17 +61,17 @@ export function Calendar() {
   };
 
   return (
-    <div className="Calendar">
-      <div className="CalendarHeader">
+    <div className={styles.Calendar}>
+      <div className={styles.CalendarHeader}>
         <div
-          className="MonthSelectButton"
+          className={styles.MonthSelectButton}
           onClick={() => setMonthIndex(monthIndex - 1)}
         >
           Prev
         </div>
-        <h1 className="Cursive">{monthNames[monthIndex]}</h1>
+        <h1 className={"Cursive"}>{monthNames[monthIndex]}</h1>
         <div
-          className="MonthSelectButton"
+          className={styles.MonthSelectButton}
           onClick={() => setMonthIndex(monthIndex + 1)}
         >
           Next
@@ -79,7 +80,7 @@ export function Calendar() {
       {monthGrids[monthIndex] &&
         monthGrids[monthIndex].map((row, rowIndex) => {
           return (
-            <div className="CalendarRow">
+            <div className={styles.CalendarRow}>
               {row.map((day) => {
                 return (
                   <CalendarDay
@@ -102,21 +103,12 @@ export function Calendar() {
 }
 
 function CalendarDay(props) {
-  let styles = {
-    backgroundColor: "",
-  };
+  const [events, setEvents] = useState([]);
 
-  if (props.isDifferentMonth) {
-    styles.backgroundColor = "grey";
-  } else if (props.isToday) {
-    styles.backgroundColor = "#b4dbe5";
-  } else {
-    styles.backgroundColor = "white";
-  }
+  let dayClass = "";
+  if (props.isDifferentMonth) dayClass = styles.DayOutsideMonth;
+  else if (props.isToday) dayClass = styles.DayIsToday;
+  else dayClass = styles.DayInMonth;
 
-  return (
-    <div className="CalendarDay" style={styles}>
-      {props.day}
-    </div>
-  );
+  return <div className={`${styles.CalendarDay} ${dayClass}`}>{props.day}</div>;
 }

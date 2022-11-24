@@ -23,8 +23,13 @@ function App() {
     <Router>
       <div className="App">
         <div className="Nav">
-          <Link to="/">Calendar</Link>
-          <Link to="/journal">Journal</Link>
+          <h3 style={{ padding: "0 20px" }} className={"Cursive"}>
+            My Calendar
+          </h3>
+          <div className="NavLinks">
+            <Link to="/">Calendar</Link>
+            <Link to="/journal">Journal</Link>
+          </div>
         </div>
         <Routes>
           <Route path="/" element={<Calendar />} />
