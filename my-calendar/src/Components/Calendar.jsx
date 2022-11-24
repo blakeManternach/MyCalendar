@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 
-export default function Calendar() {
-
-  const todaysDate = new Date();
+export function Calendar() {
   const [monthIndex, setMonthIndex] = useState(0);
+  const [todaysDate, setTodaysDate] = useState();
+
   useEffect(() => {
     if (monthIndex >= 12) setMonthIndex(0);
     if (monthIndex < 0) setMonthIndex(11);
   }, [monthIndex]);
+
   const monthNames = [
     "January",
     "February",
@@ -23,10 +24,14 @@ export default function Calendar() {
     "December",
   ];
   const [monthGrids, setMonthGrids] = useState([]);
+
   useEffect(() => {
+    const initDay = new Date();
     calculateMonthsForYear();
-    setMonthIndex(todaysDate.getMonth());
+    setTodaysDate(initDay);
+    setMonthIndex(initDay.getMonth());
   }, []);
+
   const calculateMonthsForYear = () => {
     const MONTHS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let year = [];
@@ -63,7 +68,7 @@ export default function Calendar() {
         >
           Prev
         </div>
-        <h1>{monthNames[monthIndex]}</h1>
+        <h1 className="Cursive">{monthNames[monthIndex]}</h1>
         <div
           className="MonthSelectButton"
           onClick={() => setMonthIndex(monthIndex + 1)}
@@ -84,7 +89,7 @@ export default function Calendar() {
                       day === todaysDate.getDate()
                     }
                     isDifferentMonth={
-                      (rowIndex == 0 && day > 20) || (rowIndex > 2 && day < 7)
+                      (rowIndex === 0 && day > 20) || (rowIndex > 2 && day < 7)
                     }
                   />
                 );
@@ -104,12 +109,14 @@ function CalendarDay(props) {
   if (props.isDifferentMonth) {
     styles.backgroundColor = "grey";
   } else if (props.isToday) {
-    styles.backgroundColor = "blue";
+    styles.backgroundColor = "#b4dbe5";
   } else {
     styles.backgroundColor = "white";
   }
 
-  return <div className="CalendarDay" style={styles}>
+  return (
+    <div className="CalendarDay" style={styles}>
       {props.day}
     </div>
+  );
 }
