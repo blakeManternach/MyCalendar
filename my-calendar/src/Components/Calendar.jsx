@@ -68,7 +68,7 @@ export function Calendar() {
         >
           Prev
         </div>
-        <h1>{monthNames[monthIndex]}</h1>
+        <h1 className="Cursive">{monthNames[monthIndex]}</h1>
         <div
           className="MonthSelectButton"
           onClick={() => setMonthIndex(monthIndex + 1)}
@@ -109,7 +109,7 @@ function CalendarDay(props) {
   if (props.isDifferentMonth) {
     styles.backgroundColor = "grey";
   } else if (props.isToday) {
-    styles.backgroundColor = "blue";
+    styles.backgroundColor = "#b4dbe5";
   } else {
     styles.backgroundColor = "white";
   }
