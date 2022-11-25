@@ -112,8 +112,6 @@ export function Calendar() {
 }
 
 function CalendarDay(props) {
-  const [events, setEvents] = useState([]);
-
   let dayClass = "";
   if (props.isDifferentMonth) dayClass = styles.DayOutsideMonth;
   else if (props.isToday) dayClass = styles.DayIsToday;
