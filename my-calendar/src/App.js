@@ -3,20 +3,26 @@ import { Calendar } from "./Components/Calendar";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Journal } from "./Components/Journal";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+import { request } from "./Utils";
 
 function App() {
-  useEffect(() => {
-    const url = "https://localhost:7233/WeatherForecast";
+  const [journalEntry, setJournalEntry] = useState(null);
+  const [events, setEvents] = useState([]);
 
-    fetch(url, {
-      mode: "cors",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+  useEffect(() => {
+    async function getAllEvents() {
+      let apiEvents = await request("Event/GetAllEvents");
+      setEvents(apiEvents);
+    }
+    async function GetJournalEntry() {
+      let entry = await request("JournalEntry/GetEntry");
+      setJournalEntry(entry);
+    }
+
+    getAllEvents();
+    GetJournalEntry();
   }, []);
 
   return (
@@ -33,7 +39,7 @@ function App() {
         </div>
         <Routes>
           <Route path="/" element={<Calendar />} />
-          <Route path="/journal" element={<Journal />} />
+          <Route path="/journal" element={<Journal Entry={journalEntry} />} />
         </Routes>
       </div>
     </Router>

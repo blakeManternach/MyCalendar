@@ -1,6 +1,6 @@
 namespace MyCalendarAPI.Entities
 {
-    public class Event
+    public class Event : BaseEntity
     {
         public int EventID { get; set; }
         public string EventTitle { get; set; }

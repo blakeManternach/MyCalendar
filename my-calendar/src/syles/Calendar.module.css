@@ -14,6 +14,23 @@
   margin: 0px 2px;
 }
 
+.DayRow {
+  display: flex;
+  flex-direction: row;
+  min-height: 10px;
+  margin: 0px 2px;
+}
+
+.DayRow > p {
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 100%;
+  padding: 5px;
+  margin: 1px;
+  background-color: rgb(32, 34, 0);
+  text-align: center;
+}
+
 .CalendarDay {
   display: flex;
   flex-direction: column;
@@ -29,7 +46,7 @@
 }
 
 .DayIsToday {
-  background-color: rgb(233, 238, 97);
+  background-color: #e9ee61;
   color: black;
 }
 

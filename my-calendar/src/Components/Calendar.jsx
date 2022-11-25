@@ -56,7 +56,6 @@ export function Calendar() {
       leftOvers = week;
     }
 
-    console.log(year);
     setMonthGrids(year);
   };
 
@@ -77,13 +76,23 @@ export function Calendar() {
           Next
         </div>
       </div>
+      <div className={styles.DayRow}>
+        <p>Sunday</p>
+        <p>Monday</p>
+        <p>Tuesday</p>
+        <p>Wednesday</p>
+        <p>Thursday</p>
+        <p>Friday</p>
+        <p>Saturday</p>
+      </div>
       {monthGrids[monthIndex] &&
         monthGrids[monthIndex].map((row, rowIndex) => {
           return (
-            <div className={styles.CalendarRow}>
+            <div className={styles.CalendarRow} key={rowIndex}>
               {row.map((day) => {
                 return (
                   <CalendarDay
+                    key={day + row}
                     day={day}
                     isToday={
                       monthIndex === todaysDate.getMonth() &&

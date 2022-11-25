@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../syles/Journal.module.css";
 
-export function Journal() {
+export function Journal(props) {
   const [journalEntry, setJournalEntry] = useState("");
+
+  useEffect(() => {
+    if (!props.Entry) return;
+    setJournalEntry(props.Entry.entryText);
+  }, [props.Entry]);
 
   return (
     <div className={styles.Journal}>
