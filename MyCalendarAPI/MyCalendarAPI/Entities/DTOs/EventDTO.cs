@@ -1,6 +1,6 @@
-namespace MyCalendarAPI.Entities
+﻿namespace MyCalendarAPI.Entities.DTOs
 {
-    public class Event : BaseEntity
+    public class EventDTO : BaseDTO
     {
         public int EventID { get; set; }
         public string EventTitle { get; set; }
@@ -8,5 +8,3 @@ namespace MyCalendarAPI.Entities
         public DateTime EventDate { get; set; }
     }
 }
-
-

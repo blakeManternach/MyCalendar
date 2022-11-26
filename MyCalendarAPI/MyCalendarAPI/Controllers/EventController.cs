@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MyCalendarAPI.Entities;
+using MyCalendarAPI.Entities.DataModels;
 
 namespace MyCalendarAPI.Controllers
 {
@@ -38,5 +38,7 @@ namespace MyCalendarAPI.Controllers
         {
             return events;
         }
+
+
     }
 }

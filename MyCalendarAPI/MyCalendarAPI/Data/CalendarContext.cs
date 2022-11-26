@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyCalendarAPI.Entities;
+using MyCalendarAPI.Entities.DataModels;
 
 namespace MyCalendarAPI.Data
 {

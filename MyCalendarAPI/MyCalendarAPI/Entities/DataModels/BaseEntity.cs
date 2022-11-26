@@ -1,4 +1,4 @@
-﻿namespace MyCalendarAPI.Entities
+﻿namespace MyCalendarAPI.Entities.DataModels
 {
     public class BaseEntity
     {
