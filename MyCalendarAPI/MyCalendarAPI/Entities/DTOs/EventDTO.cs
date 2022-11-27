@@ -1,4 +1,6 @@
-﻿namespace MyCalendarAPI.Entities.DTOs
+﻿using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+
+namespace MyCalendarAPI.Entities.DTOs
 {
     public class EventDTO : BaseDTO
     {
@@ -6,5 +8,6 @@
         public string EventTitle { get; set; }
         public string EventDescription { get; set; }
         public DateTime EventDate { get; set; }
+
     }
 }

@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MyCalendarAPI.Data;
+using MyCalendarAPI.Services;
+using MyCalendarAPI.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,7 @@ builder.Services.AddDbContext<CalendarContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddScoped<IEventService, EventService>();
 
 // CORS
 builder.Services.AddCors(options => options.AddPolicy("CorsPolicy", builder =>

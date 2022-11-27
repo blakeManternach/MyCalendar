@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyCalendarAPI.Entities.DataModels;
+using MyCalendarAPI.Services.Interfaces;
 
 namespace MyCalendarAPI.Controllers
 {
@@ -32,11 +33,18 @@ namespace MyCalendarAPI.Controllers
                 EventTitle = "Test Event Title 3"
             },
         };
+        private readonly IEventService eventService;
+
+        public EventController(IEventService eventService)
+        {
+            this.eventService = eventService;
+        }
 
         [HttpGet("GetAllEvents")]
         public async Task<ActionResult<IEnumerable<Event>>> GetAllEvents()
         {
-            return events;
+            var events = await eventService.GetAllEvents();
+            return new JsonResult(events);
         }
 
 
